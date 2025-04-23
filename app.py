@@ -4,6 +4,19 @@ import streamlit as st
 from pytube import YouTube
 import subprocess
 from langchain_groq import ChatGroq
+from dotenv import load_dotenv
+load_dotenv()
+import os
+
+groq_api_key = os.getenv("GROQ_API_KEY")
+if not groq_api_key:
+    st.error("❌ GROQ_API_KEY is missing. Please check your .env file.")
+    st.stop()
+
+model = ChatGroq(
+    groq_api_key=groq_api_key,
+    model_name="meta-llama/llama-4-scout-17b-16e-instruct"
+)
 
 # Directories
 videos_directory = 'videos/'
