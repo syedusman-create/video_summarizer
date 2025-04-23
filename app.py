@@ -5,7 +5,7 @@ from pytube import YouTube
 import subprocess
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(dotenv_path=".env")
 import os
 
 groq_api_key = os.getenv("GROQ_API_KEY")
